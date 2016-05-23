@@ -1,0 +1,36 @@
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master local[8] \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://localhost:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://ec2-204-236-173-216.us-west-1.compute.amazonaws.com:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://10.196.104.101:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --master spark://10.196.104.101:7077 \
+  --jars /myspark/lib/* \
+  /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --master local[*] \
+  --jars /myspark/lib/* \
+  /myspark/test.function.pointer-1.0-SNAPSHOT.jar
+

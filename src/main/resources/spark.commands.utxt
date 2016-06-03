@@ -1,0 +1,84 @@
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --num-executors 2 \
+  --deploy-mode cluster \
+  --master spark://ec2-54-177-34-96.us-west-1.compute.amazonaws.com:7077 \
+  --jars "$(for i in /myspark/lib/*.jar ; do echo -n local://$i, ; done)" \
+  /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===============================================================
+O L D
+=====
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master local[8] \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://localhost:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://ec2-204-236-173-216.us-west-1.compute.amazonaws.com:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://10.196.104.101:7077 \
+  /root/spark/lib/spark-examples-1.6.0-hadoop1.2.1.jar \
+  10
+
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --master spark://10.196.104.101:7077 \
+  --jars /myspark/lib/* \
+  /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --master local[*] \
+  --jars "/myspark/lib/*" \
+  /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+/root/spark/bin/spark-submit \
+  --class golan.spark.stocks.ReadFromLocalFile \
+  --num-executors 2 \
+  --master spark://ec2-54-177-34-96.us-west-1.compute.amazonaws.com:7077 \
+  --jars "local:///myspark/lib/*" \
+  /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+
+
+
+/root/spark/bin/spark-submit \
+    --class golan.spark.stocks.ReadFromLocalFile \
+    --master spark://10.196.104.101:7077 \
+    --deploy-mode client \
+    --jars "/myspark/lib/netty-all-4.0.29.Final.jar,/myspark/lib/spark-core_2.11-1.6.0.jar,/myspark/lib/hadoop-annotations-2.2.0.jar,/myspark/lib/hadoop-auth-2.2.0.jar,/myspark/lib/hadoop-client-2.2.0.jar,/myspark/lib/hadoop-common-2.2.0.jar,/myspark/lib/hadoop-hdfs-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-app-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-common-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-core-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-jobclient-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-shuffle-2.2.0.jar,/myspark/lib/hadoop-yarn-api-2.2.0.jar,/myspark/lib/hadoop-yarn-client-2.2.0.jar,/myspark/lib/hadoop-yarn-common-2.2.0.jar,/myspark/lib/hadoop-yarn-server-common-2.2.0.jar" \
+    /myspark/spark.stocks-1.0-SNAPSHOT.jar
+
+RAZ:
+/root/spark/bin/spark-submit --class golan.spark.stocks.ReadFromLocalFile --master spark://10.196.104.101:7077 --deploy-mode client --jars "/myspark/lib/netty-all-4.0.29.Final.jar,/myspark/lib/spark-core_2.11-1.6.0.jar,/myspark/lib/hadoop-annotations-2.2.0.jar,/myspark/lib/hadoop-auth-2.2.0.jar,/myspark/lib/hadoop-client-2.2.0.jar,/myspark/lib/hadoop-common-2.2.0.jar,/myspark/lib/hadoop-hdfs-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-app-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-common-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-core-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-jobclient-2.2.0.jar,/myspark/lib/hadoop-mapreduce-client-shuffle-2.2.0.jar,/myspark/lib/hadoop-yarn-api-2.2.0.jar,/myspark/lib/hadoop-yarn-client-2.2.0.jar,/myspark/lib/hadoop-yarn-common-2.2.0.jar,/myspark/lib/hadoop-yarn-server-common-2.2.0.jar" /myspark/spark.stocks-1.0-SNAPSHOT.jar
